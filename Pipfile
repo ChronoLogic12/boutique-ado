@@ -8,6 +8,7 @@ django = "==3.2"
 django-allauth = "*"
 pillow = "*"
 django-crispy-forms = "*"
+stripe = "*"
 
 [dev-packages]
 
