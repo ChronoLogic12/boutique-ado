@@ -31,8 +31,7 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-
-
+            
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -56,7 +55,7 @@ def all_products(request):
         'current_sorting': current_sorting,
     }
 
-    return render(request, "products/products.html", context)
+    return render(request, 'products/products.html', context)
 
 
 def product_detail(request, product_id):
@@ -68,7 +67,7 @@ def product_detail(request, product_id):
         'product': product,
     }
 
-    return render(request, "products/product_detail.html", context)
+    return render(request, 'products/product_detail.html', context)
 
 
 def add_product(request):
