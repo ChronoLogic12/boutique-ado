@@ -26,7 +26,7 @@ SECRET_KEY = 'p@ei#69*b*zz3u4yie-$()@cy^l(+x9&@6ypx+r0lm(3%_9hr7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["chonologin-boutique-ado.herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -115,17 +115,24 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'DATABSE_URL' in os.environ:
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
+DATABASES = {
+    "default": dj_database_url.parse("postgres://tzafnhzgqfreat:31aef3fbb6ce5b57e0752ed28fe62ecf81cb0da3f67762f4dc9b7a50b7017f4d@ec2-54-228-32-29.eu-west-1.compute.amazonaws.com:5432/dfv95891ulk3ia")
+}
 
 
 # Password validation

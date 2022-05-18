@@ -12,6 +12,8 @@ stripe = "*"
 django-countries = "==7.2.1"
 dj-database-url = "*"
 psycopg2-binary = "*"
+gunicorn = "*"
+heroku = "*"
 
 [dev-packages]
 
