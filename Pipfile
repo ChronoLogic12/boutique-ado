@@ -16,6 +16,7 @@ gunicorn = "*"
 heroku = "*"
 boto3 = "*"
 django-storages = "*"
+python-dateutil = "*"
 
 [dev-packages]
 
