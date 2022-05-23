@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "django": "^1.0.0",
     "heroku": "^7.60.2",
     "ig": "^0.0.5"
   }
